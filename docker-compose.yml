@@ -4,7 +4,7 @@ services:
   spring-boot-app:
     build: .
     container_name: spring-boot-app
-    image: KsiksiMohamedArafet-5SIM1-tp-foyer  # Update this with the correct format
+    image: ksiksimohamedafoet-5sim1-tp-foyer  # Make sure the image name is lowercase
     ports:
       - "8082:8080"
     depends_on:
