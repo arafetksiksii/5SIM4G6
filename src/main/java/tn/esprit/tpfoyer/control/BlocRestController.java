@@ -19,7 +19,7 @@ public class BlocRestController {
     IBlocService blocService;
 
 
-    //http://localhost:8089/tpfoyer/bloc/retrieve-all-blocs
+    //http://localhost:8089/tpfoyer/bloc/retrieve-all-blocs test push
 
     @GetMapping("/retrieve-all-blocs")
     @Operation(description = "WS de récuperation de tous les Blocs ")
