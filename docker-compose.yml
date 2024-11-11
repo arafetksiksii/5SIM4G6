@@ -4,7 +4,7 @@ services:
   spring-boot-app:
     build: .
     container_name: spring-boot-app
-    image: ksiksimohamedafoet-5sim1-tp-foyer
+    image: ksiksimohamedarafet-5sim4-tpfoyer
     ports:
       - "8083:8082"  # Mapping host port 8082 to container port 8080
     depends_on:
