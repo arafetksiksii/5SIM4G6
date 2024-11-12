@@ -8,9 +8,9 @@ services:
     ports:
       - "8083:8082"  # Mapping host port 8082 to container port 8080
     depends_on:
-      - mysql-db  # Ensures MySQL container starts before Spring Boot app
+      - mysql-db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/mydb  # Correct MySQL connection URL
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/mydb
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
@@ -22,9 +22,18 @@ services:
     container_name: mysql-db
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=mydb  # This ensures that the "mydb" database is created
+      - MYSQL_DATABASE=mydb
     ports:
-      - "3307:3306"  # Host port 3307 mapped to container port 3306
+      - "3307:3306"
+    networks:
+      - mynetwork
+
+  ngrok:
+    image: wernight/ngrok
+    container_name: ngrok
+    environment:
+      - NGROK_AUTHTOKEN=your-ngrok-auth-token  # Optional but recommended
+    command: http host.docker.internal:8080  # Exposes Jenkins running on host port 8080
     networks:
       - mynetwork
 
